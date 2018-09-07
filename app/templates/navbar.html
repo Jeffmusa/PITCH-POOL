@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse" role="navigation">
+<div class="navbar navbar-inverse" role="navigation" style="background-color: rgb(48, 41, 90);">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"> Watchlist </a>
+            <a class="navbar-brand" href="/"> PITCH </a>
 
         </div>
         <div class="navbar-collapse collapse">
@@ -16,17 +16,7 @@
                 <li><a href="/">Home</a></li>
 
         </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                {% if current_user.is_authenticated %}
-                <li style="color:white;padding:6px; font-size: 20px;"><a href=""></a>{{current_user.username}}</li>
-                <li style="color:white;padding:15px;"><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
-                <li style="color:white;padding:15px;"><a href="{{url_for('auth.logout')}}">Sign out</a></li>
-                {% else %}
-                <li style="color:white;padding:15px;"><a href="{{url_for('auth.login')}}">Sign in</a></li>
-                {%endif%}
-            </ul>
-        </div>
+        
     </div>
 
 </div>
