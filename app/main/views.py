@@ -1,6 +1,8 @@
 from flask import render_template
 from . import main
 from .forms import PitchForm
+from flask_login import login_required
+from .. import auth
 # from ..models import Pitch
 
 
@@ -16,6 +18,7 @@ def index():
     return render_template('index.html', title = title )   
 
 @main.route('/pitch', methods = ['GET','POST'])
+@login_required
 def new_pitch():
     # form = PitchForm()
     
@@ -27,4 +30,6 @@ def new_pitch():
     #     return redirect(url_for('movie',id = movie.id ))
 
     
-    return render_template('pitch.html')    
+    return render_template('pitch.html') 
+
+
