@@ -6,9 +6,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                
             </button>
-            <a class="navbar-brand" href="/"> PITCH </a>
+            <a class="navbar-brand" href="/"><img src="https://static1.squarespace.com/static/58067cd5725e25f7f2f7d64f/t/5a5d20b58165f5ec9d0c636a/1516052677783/Pitch-Logo.png?format=1000w" alt="" style="height:40px; width:80px;"></a>
 
         </div>
         <div class="navbar-collapse collapse">
@@ -20,7 +20,7 @@
         <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
                 <li style="color:white;padding:15px;">{{current_user.username}}</li>
-                <li><a href="{{url_for('main.profile',uname=current_user.username)}}">Profile</a></li>
+                <li><a href="{{url_for('main.profile',uname=current_user.username)}}">profile</a></li>
                 <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
                 {% else %}
                 <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
@@ -32,3 +32,9 @@
     </div>
 
 </div>
+<style>
+a{
+font-family: 'Merienda', cursive;
+font-family: 'Ruslan Display', cursive;
+}
+</style>
