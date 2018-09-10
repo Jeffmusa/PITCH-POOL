@@ -29,6 +29,32 @@ def new_pitch():
         return redirect(url_for('main.pitch'))
     return render_template('new_pitch.html',form=form) 
 
+@main.route('/product', methods = ['GET','POST'])
+
+def product():
+
+    # pitches=Pitch.query.all()
+   
+    return render_template('product.html')
+
+@main.route('/interview', methods = ['GET','POST'])
+
+def interview():
+
+    # pitches=Pitch.query.all()
+   
+    return render_template('interview.html')    
+
+
+
+@main.route('/promotion', methods = ['GET','POST'])
+
+def promotion():
+
+    # pitches=Pitch.query.all()
+   
+    return render_template('promotion.html')
+
 @main.route('/pitch', methods = ['GET','POST'])
 
 def pitch():
@@ -36,7 +62,6 @@ def pitch():
     pitches=Pitch.query.all()
    
     return render_template('pitch.html',pitches=pitches)
-
     
 
 @main.route('/user/<uname>')
