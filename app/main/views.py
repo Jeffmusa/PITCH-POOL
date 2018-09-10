@@ -28,7 +28,7 @@ def new_pitch():
         pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
         db.session.add(pitch)
         db.session.commit()
-    #     return redirect(url_for('movie',id = movie.id ))
+    
     
     return render_template('pitch.html',form=form) 
 
