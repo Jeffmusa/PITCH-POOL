@@ -27,7 +27,7 @@ def new_pitch():
 
     # if form.validate_on_submit():
     #  
-
+    #     pitch.save_pitch()
     #     return redirect(url_for('movie',id = movie.id ))
 
     
