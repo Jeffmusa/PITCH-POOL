@@ -22,12 +22,11 @@ def index():
 @main.route('/pitch', methods = ['GET','POST'])
 
 def new_pitch():
-    # form = PitchForm()
-    
+    form = PitchForm()
+     
 
     # if form.validate_on_submit():
-    #     pitch = form.pitch.data
-    #     pitch = Pitch(pitch)
+    #  
     #     pitch.save_pitch()
     #     return redirect(url_for('movie',id = movie.id ))
 
