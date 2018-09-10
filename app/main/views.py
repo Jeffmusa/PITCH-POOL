@@ -24,14 +24,13 @@ def index():
 def new_pitch():
     form = PitchForm()
      
-
-    # if form.validate_on_submit():
-    #  
-    #     pitch.save_pitch()
+    if form.validate_on_submit():
+        pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
+        db.session.add(pitch)
+        db.session.commit()
     #     return redirect(url_for('movie',id = movie.id ))
-
     
-    return render_template('pitch.html') 
+    return render_template('pitch.html',form=form) 
 
 
 @main.route('/user/<uname>')

@@ -42,14 +42,11 @@ class Pitch(db.Model):
 
     __tablename__ = 'pitches'
 
-    id = db.Column(db.Integer,primary_key = True)
-    movie_id = db.Column(db.Integer)
-    movie_title = db.Column(db.String)
-    image_path = db.Column(db.String)
-    movie_review = db.Column(db.String)
-    posted = db.Column(db.DateTime,default=datetime.utcnow)
-    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))        
-
+    id = db.Column(db.Integer, primary_key=True)
+    post = db.Column(db.String(255))
+    body = db.Column(db.String(1000))
+    date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 
     
     def save_pitch(self):

@@ -1,22 +1,24 @@
 {% extends 'base.html'%}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
+<div class="container">
 <div class="row">
 
         <h1>Pitches</h1>
         <hr>
 
-        {% if reviews %}
+        {% if pitches %}
             {{macro.displayPitches(pitches)}}
 
         {% else%}
             <h3 class="text-center">No pitches </h3>
             
 
-            <a class="btn btn-success btn-lg text-center" href="/review/new/pitch"> Add a new pitch</a>
+            <a class="btn btn-success btn-lg text-center" href="/new/pitch"> Add a new pitch</a>
         {% endif %}
 
     </div> 
+</div>
 
 {% endblock%}
 
