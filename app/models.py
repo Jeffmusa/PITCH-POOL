@@ -45,6 +45,7 @@ class Pitch(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     post = db.Column(db.String(255))
     body = db.Column(db.String(1000))
+    category = db.Column(db.String(10000))
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
 

@@ -3,7 +3,7 @@ from . import main
 from .forms import PitchForm
 from flask_login import login_required, current_user
 from .. import auth
-from ..models import User
+from ..models import User,Pitch
 from .forms import UpdateProfile
 from .. import db,photos
 
@@ -19,34 +19,23 @@ def index():
 
     return render_template('index.html', title = title )   
 
+@main.route('/new_pitch', methods = ['GET','POST'])
+@login_required
+def new_pitch():   
+    form = PitchForm() 
+    if form.validate_on_submit():
+        pitch = Pitch(post=form.post.data,body=form.body.data)
+        pitch.save_pitch()
+        return redirect(url_for('main.pitch'))
+    return render_template('new_pitch.html',form=form) 
+
 @main.route('/pitch', methods = ['GET','POST'])
 
-def new_pitch():
-    form = PitchForm()
-     
-    if form.validate_on_submit():
-        pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
-        db.session.add(pitch)
-        db.session.commit()
-
-        return redirect(url_for('.pitch'))
-
-    
-    
-    return render_template('pitch.html',form=form) 
-
-@main.route('/new_pitch', methods = ['GET','POST'])
-
 def pitch():
-    form = PitchForm()
-     
-    if form.validate_on_submit():
-        pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
-        db.session.add(pitch)
-        db.session.commit()
-    
-    
-    return render_template('new_pitch.html',form=form)
+
+    pitches=Pitch.query.all()
+   
+    return render_template('pitch.html',pitches=pitches)
 
 @main.route('/user/<uname>')
 def profile(uname):
