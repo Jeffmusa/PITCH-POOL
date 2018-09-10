@@ -51,7 +51,7 @@ def interview():
 
 def promotion():
 
-    # pitches=Pitch.query.all()
+    promo=Pitch.query.filter_by(category="promotion")
    
     return render_template('promotion.html')
 

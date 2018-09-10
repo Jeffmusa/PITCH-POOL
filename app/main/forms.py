@@ -8,7 +8,9 @@ class PitchForm(FlaskForm):
     post = StringField('Your name',validators=[Required()])
 
     body = TextAreaField('Pitch')
-    
+
+    category = StringField('Your category',validators=[Required()])
+   
     submit = SubmitField('Submit')
 
 class CommentForm(FlaskForm):
