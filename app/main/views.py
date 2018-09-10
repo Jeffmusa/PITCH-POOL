@@ -37,6 +37,8 @@ def pitch():
    
     return render_template('pitch.html',pitches=pitches)
 
+    
+
 @main.route('/user/<uname>')
 def profile(uname):
     user = User.query.filter_by(username = uname).first()
