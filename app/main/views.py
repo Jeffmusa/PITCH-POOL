@@ -28,10 +28,25 @@ def new_pitch():
         pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
         db.session.add(pitch)
         db.session.commit()
+
+        return redirect(url_for('.pitch'))
+
     
     
     return render_template('pitch.html',form=form) 
 
+@main.route('/new_pitch', methods = ['GET','POST'])
+
+def pitch():
+    form = PitchForm()
+     
+    if form.validate_on_submit():
+        pitch = Pitch(post= form.post.data,body=form.body.data,date_posted=form.date_posted.data)
+        db.session.add(pitch)
+        db.session.commit()
+    
+    
+    return render_template('new_pitch.html',form=form)
 
 @main.route('/user/<uname>')
 def profile(uname):
