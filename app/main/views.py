@@ -33,16 +33,16 @@ def new_pitch():
 
 def product():
 
-    prodo=Pitch.query.filter_by(category="product")
+    prodo=Pitch.query.filter_by(category="product").all()
 
    
-    return render_template('product.html', prodo = prodo )
+    return render_template('product.html', prodo = product )
 
 @main.route('/interview', methods = ['GET','POST'])
 
 def interview():
 
-    pitches=Pitch.query.all()
+    inter=Pitch.query.filter_by(category="interview")
    
     return render_template('interview.html')    
 
@@ -52,9 +52,9 @@ def interview():
 
 def promotion():
 
-    promo=Pitch.query.filter_by(category="promotion")
+    promo=Pitch.query.filter_by(category="promotion").all()
    
-    return render_template('promotion.html')
+    return render_template('promotion.html', promo=promo)
 
 @main.route('/pitch', methods = ['GET','POST'])
 

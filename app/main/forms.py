@@ -10,12 +10,12 @@ class PitchForm(FlaskForm):
     body = TextAreaField('Pitch')
 
     category = RadioField('Pick Category',
-                          choices=[('Product', 'Product'),
-                                ('Interview', 'Interview'),
-                                   ('promotion', 'Interview')],
+                          choices=[('product', 'product'),
+                                ('interview', 'interview'),
+                                   ('promotion', 'promotion')],
                           validators=[Required()])
    
-    submit = SubmitField('Submit')
+    submit = SubmitField('Pitch')
 
 class CommentForm(FlaskForm):
 
