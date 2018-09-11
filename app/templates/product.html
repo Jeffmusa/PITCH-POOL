@@ -9,7 +9,20 @@
 
         {% if pitches %}
 
-           <h1>hi</h1>
+           {% for prod in prodo %}
+           
+                <div class="panel panel-success panel-heading">
+                        <ol>
+                    <p>{{prod.body}}</p> 
+                    <p>By:{{prod.post}}</p>
+                    <p>{{prod.date_posted}}</p> 
+                    
+                </ol>
+                </div>
+           
+           
+        
+           {% endfor %}
            <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
 
         {% else%}

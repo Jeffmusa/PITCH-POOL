@@ -9,16 +9,22 @@
     <title> PITCH ALONG </title>
     {% endif %}
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Chewy" rel="stylesheet">
 </head>
 {% extends 'base.html'%} {% import 'macros.html' as macro%}{% import "bootstrap/wtf.html" as wtf %}
 
 <body>
     {% block content %}
-    <div class="panel panel-success panel-heading"><a href="/pitch" style="padding-left: 10px; ">PICK UP</a></div>
-    <div class="panel panel-success panel-heading"><a href="/product" style="padding-left: 10px; ">PRODUCT</a></div>
-    <div class="panel panel-success panel-heading"><a href="/interview" style="padding-left: 10px; ">INTERVIEW</a></div>
-    <div class="panel panel-success panel-heading"><a href="/promotion" style="padding-left: 10px; ">PROMOTION</a></div>
-
+    <div class="panel panel-success panel-heading" id="tag"><a href="/pitch" style="padding-left: 10px; ">PICK UP</a></div>
+    <div class="panel panel-success panel-heading"id="tag"><a href="/product" style="padding-left: 10px; ">PRODUCT</a></div>
+    <div class="panel panel-success panel-heading"id="tag"><a href="/interview" style="padding-left: 10px; ">INTERVIEW</a></div>
+    <div class="panel panel-success panel-heading"id="tag"><a href="/promotion" style="padding-left: 10px; ">PROMOTION</a></div>
+<style>
+#tag{
+    font-family: 'Chewy', cursive;
+    font-size:20px;
+}
+</style>
     
    
     

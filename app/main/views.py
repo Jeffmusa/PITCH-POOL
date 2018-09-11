@@ -24,7 +24,7 @@ def index():
 def new_pitch():   
     form = PitchForm() 
     if form.validate_on_submit():
-        pitch = Pitch(post=form.post.data,body=form.body.data)
+        pitch = Pitch(post=form.post.data,body=form.body.data,category=form.category.data)
         pitch.save_pitch()
         return redirect(url_for('main.pitch'))
     return render_template('new_pitch.html',form=form) 
@@ -33,15 +33,16 @@ def new_pitch():
 
 def product():
 
-    # pitches=Pitch.query.all()
+    prodo=Pitch.query.filter_by(category="product")
+
    
-    return render_template('product.html')
+    return render_template('product.html', prodo = prodo )
 
 @main.route('/interview', methods = ['GET','POST'])
 
 def interview():
 
-    # pitches=Pitch.query.all()
+    pitches=Pitch.query.all()
    
     return render_template('interview.html')    
 
