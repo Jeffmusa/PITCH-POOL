@@ -7,14 +7,14 @@
         <h1 class="text-center">Product-Pitches</h1>
         <hr>
 
-        {% if pitches %}
+        {% if product_pitches %}
 
-        {% for pitch in pitches %}           
+        {% for prodo in product_pitches %}           
                 <div class="panel panel-success panel-heading">
                         <ol>
-                    <p>{{pitch.body}}</p> 
-                    <p>By:{{pitch.post}}</p>
-                    <p>{{pitch.date_posted}}</p> 
+                    <p>{{prodo.body}}</p> 
+                    <p>By:{{prodo.post}}</p>
+                    <p>{{prodo.date_posted}}</p> 
                     
                 </ol>
                 </div>

@@ -17,7 +17,9 @@ def index():
     '''
     title = 'PITCH PERFECT'
 
-    return render_template('index.html', title = title )   
+    index=Pitch.query.all()
+
+    return render_template('index.html', title = title, index = index )   
 
 @main.route('/new_pitch', methods = ['GET','POST'])
 @login_required
@@ -33,19 +35,19 @@ def new_pitch():
 
 def product():
 
-    prodo=Pitch.query.filter_by(category="product").all()
+    product_pitches=Pitch.query.filter_by(category="product")
 
-    pitches=Pitch.query.all()
+    
 
-    return render_template('product.html', prodo = prodo )
+    return render_template('product.html', product_pitches = product_pitches )
 
 @main.route('/interview', methods = ['GET','POST'])
 
 def interview():
 
-    inter=Pitch.query.filter_by(category="interview")
+    interview_pitches=Pitch.query.filter_by(category="interview")
    
-    return render_template('interview.html')    
+    return render_template('interview.html', interview_pitches = interview_pitches)    
 
 
 
@@ -53,17 +55,17 @@ def interview():
 
 def promotion():
 
-    promo=Pitch.query.filter_by(category="promotion").all()
+    promotion_pitches=Pitch.query.filter_by(category="promotion")
    
-    return render_template('promotion.html', promo=promo)
+    return render_template('promotion.html', promotion_pitches = promotion_pitches)
 
 @main.route('/pitch', methods = ['GET','POST'])
 
 def pitch():
 
-    pitches=Pitch.query.all()
+    pitches_interview=Pitch.query.filter_by(category="pitch")
    
-    return render_template('pitch.html',pitches=pitches)
+    return render_template('pitch.html',pitches_interview=pitches_interview)
     
 
 @main.route('/user/<uname>')

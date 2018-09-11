@@ -1,4 +1,43 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro%}{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-{%  %}
-{% endblock %}
+<div class="container">
+<div class="row">
+
+        <h1 class="text-center">Promotion-Pitches</h1>
+        <hr>
+
+        {% if promotion_pitches %}
+
+        {% for pitch in promotion_pitches %}           
+                <div class="panel panel-success panel-heading">
+                        <ol>
+                    <p>{{pitch.body}}</p> 
+                    <p>By:{{pitch.post}}</p>
+                    <p>{{pitch.date_posted}}</p> 
+                    
+                </ol>
+                </div>
+           
+           
+        
+           {% endfor %}
+           <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+
+        {% else%}
+            <h3 class="text-center">No pitches yet</h3>
+            
+
+            <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+        {% endif %}
+
+    </div> 
+
+
+
+
+
+</div>
+
+{% endblock%}
+

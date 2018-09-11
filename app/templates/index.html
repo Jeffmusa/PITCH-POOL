@@ -16,12 +16,34 @@
 <body>
     {% block content %}
     <div class="jumbotron">
-        <H1 style="font-family: 'Cookie', cursive; text-align: center;">Whats on your mind........Impress someone now.</H1>
+        <H1 style="font-family: 'Cookie', cursive; text-align: center; color: #3A005C;">Whats on your mind........Impress someone now.</H1>
     </div>
+    <div class="row">
+        <div class="col-md-4">
     <div class="panel panel-success panel-heading" id="tag"><a href="/pitch" style="padding-left: 10px; ">PICK UP</a></div>
     <div class="panel panel-success panel-heading"id="tag"><a href="/product" style="padding-left: 10px; ">PRODUCT</a></div>
     <div class="panel panel-success panel-heading"id="tag"><a href="/interview" style="padding-left: 10px; ">INTERVIEW</a></div>
     <div class="panel panel-success panel-heading"id="tag"><a href="/promotion" style="padding-left: 10px; ">PROMOTION</a></div>
+</div>
+    <div class="col-md-8">
+
+            {% for prodo in index %}           
+            <div class="panel panel-success panel-heading">
+                    <ol>
+                <p>{{prodo.body}}</p> 
+                <p>By:{{prodo.post}}</p>
+                <p>{{prodo.date_posted}}</p> 
+                
+            </ol>
+            </div>
+       
+       
+    
+       {% endfor %}
+    </div>
+
+</div>
+
 <style>
 #tag{
     font-family: 'Chewy', cursive;

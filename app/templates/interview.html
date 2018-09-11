@@ -1,8 +1,43 @@
-{% extends 'base.html'%} {% import 'macros.html' as macro%}{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'base.html'%}
+{% import "bootstrap/wtf.html" as wtf %}
 {% block content %}
-<!-- <div class="panel panel-success panel-heading"><a href="/pitch" style="padding-left: 10px; ">PICK UP</a></div>
-<div class="panel panel-success panel-heading"><a href="/product" style="padding-left: 10px; ">PRODUCT</a></div>
-<div class="panel panel-success panel-heading"><a href="/interview" style="padding-left: 10px; ">INTERVIEW</a></div>
-<div class="panel panel-success panel-heading"><a href="/promotion" style="padding-left: 10px; ">PROMOTION</a></div> -->
+<div class="container">
+<div class="row">
 
-{% endblock %}
+        <h1 class="text-center">Interview-Pitches</h1>
+        <hr>
+
+        {% if interview_pitches %}
+
+        {% for pitch in interview_pitches %}           
+                <div class="panel panel-success panel-heading">
+                        <ol>
+                    <p>{{pitch.body}}</p> 
+                    <p>By:{{pitch.post}}</p>
+                    <p>{{pitch.date_posted}}</p> 
+                    
+                </ol>
+                </div>
+           
+           
+        
+           {% endfor %}
+           <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+
+        {% else%}
+            <h3 class="text-center">No pitches yet</h3>
+            
+
+            <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
+        {% endif %}
+
+    </div> 
+
+
+
+
+
+</div>
+
+{% endblock%}
+
