@@ -28,14 +28,14 @@ def new_pitch():
     if form.validate_on_submit():
         pitch = Pitch(post=form.post.data,body=form.body.data,category=form.category.data)
         pitch.save_pitch()
-        return redirect(url_for('main.pitch'))
+        return redirect(url_for('main.index'))
     return render_template('new_pitch.html',form=form) 
 
 @main.route('/product', methods = ['GET','POST'])
 
 def product():
 
-    product_pitches=Pitch.query.filter_by(category="product")
+    product_pitches=Pitch.query.filter_by(category="PRODUCT")
 
     
 
@@ -45,7 +45,7 @@ def product():
 
 def interview():
 
-    interview_pitches=Pitch.query.filter_by(category="interview")
+    interview_pitches=Pitch.query.filter_by(category="INTERVIEW")
    
     return render_template('interview.html', interview_pitches = interview_pitches)    
 
@@ -55,7 +55,7 @@ def interview():
 
 def promotion():
 
-    promotion_pitches=Pitch.query.filter_by(category="promotion")
+    promotion_pitches=Pitch.query.filter_by(category="PROMOTION")
    
     return render_template('promotion.html', promotion_pitches = promotion_pitches)
 
@@ -63,7 +63,7 @@ def promotion():
 
 def pitch():
 
-    pitches_interview=Pitch.query.filter_by(category="pitch")
+    pitches_interview=Pitch.query.filter_by(category="PICK-UP")
    
     return render_template('pitch.html',pitches_interview=pitches_interview)
     

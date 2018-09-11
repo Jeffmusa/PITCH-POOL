@@ -1,3 +1,6 @@
+<link href="https://fonts.googleapis.com/css?family=Fontdiner+Swanky" rel="stylesheet">
+
+
 <div class="navbar navbar-inverse" role="navigation" style="background-color: rgb(48, 41, 90);">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -7,23 +10,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 
-            </button>
+            </button>             
             <a class="navbar-brand" href="/"><img src="https://static1.squarespace.com/static/58067cd5725e25f7f2f7d64f/t/5a5d20b58165f5ec9d0c636a/1516052677783/Pitch-Logo.png?format=1000w" alt="" style="height:40px; width:80px;"></a>
 
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
+                <li style="font-size:20px;"><a href="/">Home</a></li>
 
         </div>
         
         <ul class="nav navbar-nav navbar-right">
                 {% if current_user.is_authenticated %}
-                <li style="color:white;padding:15px;">{{current_user.username}}</li>
-                <li class="pro"><a href="{{url_for('main.profile',uname=current_user.username)}}">profile</a></li>
-                <li><a href="{{url_for('auth.logout')}}">Sign out</a></li>
+                <li style="color:white;padding:18px;font-family: 'Fontdiner Swanky', cursive;"><H3>{{current_user.username}}</H3></li>
+                <li class="pro"><a href="{{url_for('main.profile',uname=current_user.username)}}"><H3>profile</H3></a></li>
+                <li><a href="{{url_for('auth.logout')}}"><H3>Sign out</H3></a></li>
                 {% else %}
-                <li><a href="{{url_for('auth.login')}}">Sign in</a></li>
+                <li><a href="{{url_for('auth.login')}}"><H3>Sign in</H3></a></li>
                 {%endif%}
               </ul>
 
@@ -32,9 +35,23 @@
     </div>
 
 </div>
+<!-- <nav class="navbar navbar-default" role="navigation"> -->
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- <div class="collapse navbar-collapse navbar-ex1-collapse" id="pro">
+          <ul class="nav navbar-nav">
+            <li><a href="/pitch">Pick up</a></li>
+            <li><a href="/product">Product</a></li>
+          <li><a href="/interview">Interview</a></li>
+            <li><a href="/promotion">Promotion</a></li>
+            
+          </ul>
+        </div>
+      </nav> -->
 <style>
-.pro{
+#pro{
     font-family: 'Cookie', cursive;
     font-size: 30px;
+    
 }
 </style>

@@ -10,10 +10,10 @@ class PitchForm(FlaskForm):
     body = TextAreaField('Pitch')
 
     category = RadioField('Pick Category',
-                          choices=[('product', 'product'),
-                                ('interview', 'interview'),
-                                ('pitch', 'pitch'),
-                                   ('promotion', 'promotion')],
+                          choices=[('PRODUCT', 'PRODUCT'),
+                                ('INTERVIEW', 'INTERVIEW'),
+                                ('PICK-UP', 'PICK-UP'),
+                                   ('PROMOTION', 'PROMOTION')],
                           validators=[Required()])
    
     submit = SubmitField('Pitch')

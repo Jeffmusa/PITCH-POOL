@@ -13,26 +13,38 @@
 </head>
 {% extends 'base.html'%} {% import 'macros.html' as macro%}{% import "bootstrap/wtf.html" as wtf %}
 
-<body>
+<body style="background-color:darkkhaki;">
     {% block content %}
+    
     <div class="jumbotron">
         <H1 style="font-family: 'Cookie', cursive; text-align: center; color: #3A005C;">Whats on your mind........Impress someone now.</H1>
     </div>
-    <div class="row">
-        <div class="col-md-4">
-    <div class="panel panel-success panel-heading" id="tag"><a href="/pitch" style="padding-left: 10px; ">PICK UP</a></div>
-    <div class="panel panel-success panel-heading"id="tag"><a href="/product" style="padding-left: 10px; ">PRODUCT</a></div>
-    <div class="panel panel-success panel-heading"id="tag"><a href="/interview" style="padding-left: 10px; ">INTERVIEW</a></div>
-    <div class="panel panel-success panel-heading"id="tag"><a href="/promotion" style="padding-left: 10px; ">PROMOTION</a></div>
-</div>
-    <div class="col-md-8">
+    <div class="container">
+        <h3 style="text-align:center">Choose a category below and pitch or view pitches</h3>
+    <nav class="navbar navbar-default" role="navigation" style="text-align:center;">
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse" id="pro">
+              <ul class="nav navbar-nav" >
+                <li style="padding-right:150px; color:blue;"><a href="/pitch">Pick up</a></li>
+                <li style="padding-right:150px; color:blue;"><a href="/product">Product</a></li>
+              <li style="padding-right:150px; color:blue;"><a href="/interview">Interview</a></li>
+                <li style="padding-right:150px; color:blue;"><a href="/promotion">Promotion</a></li>
+                
+              </ul>
+            </div>
+          </nav>
+
+   
 
             {% for prodo in index %}           
-            <div class="panel panel-success panel-heading">
+            <div class="panel panel-success panel-heading" style="text-align:center;">
                     <ol>
+                <h3>Category: {{prodo.category}}</h3>
                 <p>{{prodo.body}}</p> 
                 <p>By:{{prodo.post}}</p>
                 <p>{{prodo.date_posted}}</p> 
+                
                 
             </ol>
             </div>
@@ -41,24 +53,7 @@
     
        {% endfor %}
     </div>
-
-</div>
-
-<style>
-#tag{
-    font-family: 'Chewy', cursive;
-    font-size:20px;
-    background-color:rgb(226, 220, 230);
-}
-</style>
-    
-   
-    
-    
-    
-
-
-
+      
     {% endblock%}
 
 
