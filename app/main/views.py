@@ -35,7 +35,8 @@ def product():
 
     prodo=Pitch.query.filter_by(category="product").all()
 
-   
+    pitches=Pitch.query.all()
+
     return render_template('product.html', prodo = prodo )
 
 @main.route('/interview', methods = ['GET','POST'])

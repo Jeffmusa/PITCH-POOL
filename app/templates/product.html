@@ -4,18 +4,17 @@
 <div class="container">
 <div class="row">
 
-        <h1 class="text-center">Pitches</h1>
+        <h1 class="text-center">Product-Pitches</h1>
         <hr>
 
         {% if pitches %}
 
-           {% for prod in prodo %}
-           
+        {% for pitch in pitches %}           
                 <div class="panel panel-success panel-heading">
                         <ol>
-                                <p>{{prod.body}}</p> 
-                                <p>By:{{prod.post}}</p>
-                                <p>{{prod.date_posted}}</p> 
+                    <p>{{pitch.body}}</p> 
+                    <p>By:{{pitch.post}}</p>
+                    <p>{{pitch.date_posted}}</p> 
                     
                 </ol>
                 </div>
