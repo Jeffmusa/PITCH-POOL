@@ -36,7 +36,7 @@ def product():
     prodo=Pitch.query.filter_by(category="product").all()
 
    
-    return render_template('product.html', prodo = product )
+    return render_template('product.html', prodo = prodo )
 
 @main.route('/interview', methods = ['GET','POST'])
 

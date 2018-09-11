@@ -12,6 +12,7 @@ class PitchForm(FlaskForm):
     category = RadioField('Pick Category',
                           choices=[('product', 'product'),
                                 ('interview', 'interview'),
+                                ('pitch', 'pitch'),
                                    ('promotion', 'promotion')],
                           validators=[Required()])
    
