@@ -1,9 +1,9 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import PitchForm
+from .forms import PitchForm,CommentForm
 from flask_login import login_required, current_user
 from .. import auth
-from ..models import User,Pitch
+from ..models import User,Pitch,Comment
 from .forms import UpdateProfile
 from .. import db,photos
 
@@ -19,7 +19,7 @@ def index():
 
     index=Pitch.query.all()
 
-    return render_template('index.html', title = title, index = index )   
+    return render_template('index.html', title = title, index = index)   
 
 @main.route('/new_pitch', methods = ['GET','POST'])
 @login_required
@@ -66,6 +66,21 @@ def pitch():
     pitches_interview=Pitch.query.filter_by(category="PICK-UP")
    
     return render_template('pitch.html',pitches_interview=pitches_interview)
+
+
+
+
+@main.route('/comment/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_comment(id):   
+    fom = CommentForm()
+    pitch = Pitch.query.get(id)
+    if fom.validate_on_submit():
+        comment = Comment(poster=fom.poster.data,comment=fom.comment.data, pitch=pitch)
+        db.session.add(comment)
+        db.session.commit()
+    comm = Comment.query.filter_by(pitch=pitch).all()
+    return render_template('comment.html',comm=comm,fom=fom)
     
 
 @main.route('/user/<uname>')

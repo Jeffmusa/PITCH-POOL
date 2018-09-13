@@ -1,3 +1,0 @@
-Hello {{user.username}}
-Welcome to Pitch Pool.
-We have just seen that you signed up for your Pitch Pool account.Use your one minute wisely.

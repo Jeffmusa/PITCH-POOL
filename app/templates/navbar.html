@@ -26,6 +26,7 @@
                 <li class="pro"><a href="{{url_for('main.profile',uname=current_user.username)}}"><H3>profile</H3></a></li>
                 <li><a href="{{url_for('auth.logout')}}"><H3>Sign out</H3></a></li>
                 {% else %}
+                <li><a href="{{url_for('auth.register')}}"><H3>Register</H3></a></li>
                 <li><a href="{{url_for('auth.login')}}"><H3>Sign in</H3></a></li>
                 {%endif%}
               </ul>
@@ -35,19 +36,7 @@
     </div>
 
 </div>
-<!-- <nav class="navbar navbar-default" role="navigation"> -->
-    
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <!-- <div class="collapse navbar-collapse navbar-ex1-collapse" id="pro">
-          <ul class="nav navbar-nav">
-            <li><a href="/pitch">Pick up</a></li>
-            <li><a href="/product">Product</a></li>
-          <li><a href="/interview">Interview</a></li>
-            <li><a href="/promotion">Promotion</a></li>
-            
-          </ul>
-        </div>
-      </nav> -->
+
 <style>
 #pro{
     font-family: 'Cookie', cursive;

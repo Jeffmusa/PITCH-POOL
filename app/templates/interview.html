@@ -26,9 +26,12 @@
         {% for pitch in interview_pitches %}           
                 <div class="panel panel-success panel-heading">
                         <ol>
-                    <p>{{pitch.body}}</p> 
+                    <H3 style="font-family: 'Cookie', cursive;">{{pitch.body}}</H3> 
                     <p>By:{{pitch.post}}</p>
                     <p>{{pitch.date_posted}}</p> 
+                    <a href="/comment">comment</a>
+                 
+            </div>
                     
                 </ol>
                 </div>
@@ -36,6 +39,7 @@
            
         
            {% endfor %}
+           
            <a class="btn btn-success btn-lg text-center" href="/new_pitch"> Add a new pitch</a>
 
         {% else%}
@@ -52,6 +56,13 @@
 
 
 </div>
+<h3>Comments</h3>
+           <h1>HERE WE GO</h1>
+           {% for comment in comm %}
+           {{comment.poster}}
+           By:{{ comment.comment }}
+
+           {% endfor %}
 
 {% endblock%}
 
