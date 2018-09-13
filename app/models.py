@@ -18,7 +18,8 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pass_secure = db.Column(db.String(255))
-    pitches = db.relationship('Pitch',backref = 'user',lazy = "dynamic")
+    pitches = db.relationship('Pitch',backref = 'pitches',lazy = "dynamic")
+    comments = db.relationship('Comment',backref='comments',lazy="dynamic")
 
 
 
@@ -38,7 +39,7 @@ class User(UserMixin,db.Model):
         return f'User {self.username}'
 
 
-class Pitch(db.Model):
+class Pitch(UserMixin,db.Model):
 
     __tablename__ = 'pitches'
 
@@ -55,7 +56,7 @@ class Pitch(db.Model):
         db.session.add(self)
         db.session.commit()
 
-class Comment(db.Model):
+class Comment(UserMixin,db.Model):
 
     __tablename__ = 'comments'
 
@@ -63,8 +64,9 @@ class Comment(db.Model):
     poster = db.Column(db.String(255))
     comment = db.Column(db.String(1000))
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    user_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
-
+    pitch_id = db.Column(db.Integer, db.ForeignKey("pitches.id"))
+    user_id = db.Column(db.Integer,db.ForeignKey('users.id'))
+    
     
     def save_comment(self):
         db.session.add(self)

@@ -30,6 +30,12 @@
                     <p>{{pitch.date_posted}}</p> 
                     
                 </ol>
+                <h3>Comments</h3>
+                {% for comment in comm %}
+                By:{{comment.poster}}
+                {{ comment.comment }}
+     
+                {% endfor %}
                 </div>
            
            
